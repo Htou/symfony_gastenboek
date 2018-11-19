@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gastenboek{% endblock %}
+
+{% block body %}
+    {% if gastenboek %}
+        <table id="gastenboek" class="table table-striped">
+            <thead>
+            <tr>
+                <th>Titel</th>
+                <th>Naam</th>
+                <th>E-mail</th>
+                <th>Handelingen</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for gastenboekItem in gastenboek %}
+                <tr>
+                    <td>{{ gastenboekItem.titel }}</td>
+                    <td>{{ gastenboekItem.naam }}</td>
+                    <td>{{ gastenboekItem.email }}</td>
+                    <td>
+                        <a href="/gastenboek/{{ gastenboekItem.id }}" class="btn btn-dark">Weergeven</a>
+                        <a href="/gastenboek/bewerken/{{ gastenboekItem.id }}" class="btn btn-primary">Bewerken</a>
+                        <a href="/gastenboek/{{ gastenboekItem.id }}" class="btn btn-danger delete-article" data-id="{{gastenboekItem.id}}">verwijderen</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Geen gastenboek-items</p>
+    {% endif %}
+    <a href="/gastenboek/nieuw" class="btn btn-primary">Nieuwe gastenboek-item</a>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/js/main.js"></script>
+{% endblock %}
+
+
