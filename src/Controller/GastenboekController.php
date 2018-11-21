@@ -38,14 +38,8 @@ class GastenboekController extends AbstractController
             ->add('naam', TextType::class, ['attr' => ['class' => 'form-control']])
             ->add('email', TextType::class, ['attr' => ['class' => 'form-control']])
             ->add('titel', TextType::class, ['attr' => ['class' => 'form-control']])
-            ->add('body', TextareaType::class, [
-                'required' => false,
-                'attr' => ['class' => 'form-control']
-            ])
-            ->add('save', SubmitType::class, [
-                'label' => 'Opslaan',
-                'attr' => ['class' => 'btn btn-primary mt-3']
-            ])
+            ->add('body', TextareaType::class, ['required' => false, 'attr' => ['class' => 'form-control']])
+            ->add('save', SubmitType::class, ['label' => 'Opslaan', 'attr' => ['class' => 'btn btn-primary mt-3']])
             ->getForm();
 
         $form->handleRequest($request);
@@ -80,14 +74,8 @@ class GastenboekController extends AbstractController
             ->add('naam', TextType::class, ['attr' => ['class' => 'form-control']])
             ->add('email', TextType::class, ['attr' => ['class' => 'form-control']])
             ->add('titel', TextType::class, ['attr' => ['class' => 'form-control']])
-            ->add('body', TextareaType::class, [
-                'required' => false,
-                'attr' => ['class' => 'form-control']
-    ])
-            ->add('save', SubmitType::class, [
-                'label' => 'Bewerken',
-                'attr' => ['class' => 'btn btn-primary mt-3']
-            ])
+            ->add('body', TextareaType::class, ['required' => false, 'attr' => ['class' => 'form-control']])
+            ->add('save', SubmitType::class, ['label' => 'Bewerken', 'attr' => ['class' => 'btn btn-primary mt-3']])
             ->getForm();
 
         $form->handleRequest($request);
@@ -96,8 +84,7 @@ class GastenboekController extends AbstractController
             $entityManager->flush();
             return $this->redirectToRoute('gastenboek');
         }
-        return $this->render('gastenboek/bewerken.html.twig', [
-            'form' => $form->createView()
+        return $this->render('gastenboek/bewerken.html.twig', ['form' => $form->createView()
     ]);
     }
 
