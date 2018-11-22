@@ -36,6 +36,11 @@ class Gastenboek
      */
     private $body;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $PublishedAt;
+
 
     public function getId(): ?int
     {
@@ -86,6 +91,18 @@ class Gastenboek
     public function setBody(?string $body): self
     {
         $this->body = $body;
+
+        return $this;
+    }
+
+    public function getPublishedAt(): ?\DateTimeInterface
+    {
+        return $this->PublishedAt;
+    }
+
+    public function setPublishedAt(?\DateTimeInterface $PublishedAt): self
+    {
+        $this->PublishedAt = $PublishedAt;
 
         return $this;
     }

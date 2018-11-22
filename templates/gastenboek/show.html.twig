@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1>{{ gastenboekItem.titel }}</h1>
-    <h5>Door {{ gastenboekItem.naam }}</h5>
+    <h5> Door {{ gastenboekItem.naam }} - {{ gastenboekItem.publishedAt|date("m/d/Y") }} <div align="right">{{ gastenboekItem.email }} </div></h5>
     <hr>
     <p>{{ gastenboekItem.body }}</p>
     <hr>

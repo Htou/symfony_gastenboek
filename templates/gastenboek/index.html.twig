@@ -10,7 +10,7 @@
                 <tr>
                     <td>
                         <h1>{{ gastenboekItem.titel }}</h1>
-                        <h5> Door {{ gastenboekItem.naam }} <div align="right">{{ gastenboekItem.email }}</div></h5>
+                        <h5> Door {{ gastenboekItem.naam }} - {{ gastenboekItem.publishedAt|date("m/d/Y") }} <div align="right">{{ gastenboekItem.email }} </div></h5>
                         <hr>
                         <p>{{  gastenboekItem.body }}</p>
                         <a href="/gastenboek/{{ gastenboekItem.id }}" class="btn btn-dark">Weergeven</a>

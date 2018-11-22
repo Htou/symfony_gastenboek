@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -34,7 +33,6 @@ class GastenboekController extends AbstractController
     public function new(Request $request)
     {
         $gastenboekItem = new Gastenboek;
-
         $form = $this->createFormBuilder($gastenboekItem)
             ->add('naam', TextType::class, ['attr' => ['class' => 'form-control']])
             ->add('email', TextType::class, ['attr' => ['class' => 'form-control']])
@@ -70,6 +68,7 @@ class GastenboekController extends AbstractController
     {
         $gastenboekItem = new Gastenboek();
         $gastenboekItem = $this->getDoctrine()->getRepository(Gastenboek::class)->find($id);
+
 
         $form = $this->createFormBuilder($gastenboekItem)
             ->add('naam', TextType::class, ['attr' => ['class' => 'form-control']])
