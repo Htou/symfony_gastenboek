@@ -8,14 +8,14 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20181112072558 extends AbstractMigration
+final class Version20181122094648 extends AbstractMigration
 {
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE gastenboek CHANGE titel titel LONGTEXT DEFAULT NULL, CHANGE naam naam LONGTEXT DEFAULT NULL, CHANGE email email LONGTEXT DEFAULT NULL, CHANGE body body LONGTEXT DEFAULT NULL');
+        $this->addSql('ALTER TABLE gastenboek DROP added_at');
     }
 
     public function down(Schema $schema) : void
@@ -23,6 +23,6 @@ final class Version20181112072558 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE gastenboek CHANGE titel titel LONGTEXT NOT NULL COLLATE utf8mb4_unicode_ci, CHANGE naam naam LONGTEXT NOT NULL COLLATE utf8mb4_unicode_ci, CHANGE email email LONGTEXT NOT NULL COLLATE utf8mb4_unicode_ci, CHANGE body body LONGTEXT NOT NULL COLLATE utf8mb4_unicode_ci');
+        $this->addSql('ALTER TABLE gastenboek ADD added_at DATETIME NOT NULL');
     }
 }

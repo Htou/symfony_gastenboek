@@ -36,6 +36,7 @@ class Gastenboek
      */
     private $body;
 
+
     public function getId(): ?int
     {
         return $this->id;

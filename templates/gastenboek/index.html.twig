@@ -5,24 +5,21 @@
 {% block body %}
     {% if gastenboek %}
         <table id="gastenboek" class="table table-striped">
-            <thead>
-            <tr>
-                <th>Titel</th>
-                <th>Naam</th>
-                <th>E-mail</th>
-                <th>Handelingen</th>
-            </tr>
-            </thead>
             <tbody>
             {% for gastenboekItem in gastenboek %}
                 <tr>
-                    <td>{{ gastenboekItem.titel }}</td>
-                    <td>{{ gastenboekItem.naam }}</td>
-                    <td>{{ gastenboekItem.email }}</td>
                     <td>
+                        <h1>{{ gastenboekItem.titel }}</h1>
+                        <h5 class="inline">Door {{ gastenboekItem.naam }} <span>{{ gastenboekItem.email }}</span></h5>
+                        <hr>
+                        <p>{{  gastenboekItem.body }}</p>
                         <a href="/gastenboek/{{ gastenboekItem.id }}" class="btn btn-dark">Weergeven</a>
                         <a href="/gastenboek/bewerken/{{ gastenboekItem.id }}" class="btn btn-primary">Bewerken</a>
                         <a href="/gastenboek/{{ gastenboekItem.id }}" class="btn btn-danger delete-article" data-id="{{gastenboekItem.id}}">verwijderen</a>
+                        <br>
+                        <hr>
+                    </td>
+                    <td>
                     </td>
                 </tr>
             {% endfor %}
