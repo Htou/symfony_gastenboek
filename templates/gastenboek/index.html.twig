@@ -10,7 +10,7 @@
                 <tr>
                     <td>
                         <h1>{{ gastenboekItem.titel }}</h1>
-                        <h5 class="inline">Door {{ gastenboekItem.naam }} <span>{{ gastenboekItem.email }}</span></h5>
+                        <h5> Door {{ gastenboekItem.naam }} <div align="right">{{ gastenboekItem.email }}</div></h5>
                         <hr>
                         <p>{{  gastenboekItem.body }}</p>
                         <a href="/gastenboek/{{ gastenboekItem.id }}" class="btn btn-dark">Weergeven</a>
